@@ -14,7 +14,10 @@ def main():
     print(conn.verTablas())
     print(conn.getGrupos())
     print(conn.getUsersGrupo('Admin'))
-    print(conn.getUser(conn.login(('admin','admin'))))
-
+    idd=conn.login(('admin','admin'))
+    if idd:
+        token=serv.createToken(idd)
+        print(token)
+        print(serv.isAuth(token))
 if __name__ == "__main__":
     main()
